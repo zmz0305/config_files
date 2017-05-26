@@ -40,6 +40,8 @@ Plugin '907th/vim-auto-save'
 Plugin 'bling/vim-airline'
 Plugin 'raimondi/delimitmate'
 Plugin 'shougo/neocomplete.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'artur-shaik/vim-javacomplete2'
 
 
 
@@ -88,3 +90,27 @@ set history=200
 let g:auto_save = 1  " enable AutoSave on Vim startup
 set laststatus=2 " let status bar show up when only one window
 let g:neocomplete#enable_at_startup = 1 " start auto completion upon starting
+let g:airline#extensions#bufferline#enabled = 1 " enable buffer line upon starting
+let g:airline#extensions#bufferline#overwrite_variables = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#syntastic#enabled = 1
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
+
+" for general syntastic setup
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" for syntastic javascript setups
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint --fix'
+
+" for syntastic java setups
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+
