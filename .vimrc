@@ -36,7 +36,7 @@ Plugin 'kana/vim-textobj-entire'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-unimpaired'
-Plugin '907th/vim-auto-save'
+" Plugin '907th/vim-auto-save'
 Plugin 'bling/vim-airline'
 Plugin 'raimondi/delimitmate'
 Plugin 'shougo/neocomplete.vim'
@@ -84,9 +84,11 @@ set nrformats-=octal
 " colo desert
 syntax on
 
+" set backspace key in Mac, set linenumber, set history cache amount
 set backspace=indent,eol,start
 set number
 set history=200
+set set hlsearch " set search highlight"
 let g:auto_save = 1  " enable AutoSave on Vim startup
 set laststatus=2 " let status bar show up when only one window
 let g:neocomplete#enable_at_startup = 1 " start auto completion upon starting
@@ -113,4 +115,10 @@ let g:syntastic_javascript_eslint_exe = 'eslint --fix'
 " for syntastic java setups
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
+" for automatic curly brackets in function body
+inoremap {<cr> {<cr>}<c-o>O
+inoremap [<cr> [<cr>]<c-o>O
+inoremap (<cr> (<cr>)<c-o>O
 
+" yank to system clipboard
+set clipboard=unnamed
