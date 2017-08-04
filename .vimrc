@@ -42,6 +42,11 @@ Plugin 'raimondi/delimitmate'
 Plugin 'shougo/neocomplete.vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'artur-shaik/vim-javacomplete2'
+Plugin 'wincent/command-t'
+Plugin 'tpope/vim-surround'
+Plugin 'shougo/vimproc'
+Plugin 'shougo/vimshell'
+" Plugin 'neomake/neomake'
 
 
 
@@ -112,6 +117,9 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_javascript_eslint_exe = 'eslint --fix'
 
+" for syntastic python setups
+let g:syntastic_python_checkers = ['flake8', 'pylint']
+
 " for syntastic java setups
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
@@ -122,3 +130,21 @@ inoremap (<cr> (<cr>)<c-o>O
 
 " yank to system clipboard
 set clipboard=unnamed
+
+" vimshell setup
+let g:vimshell_user_prompt = 'fnamemodify(getcwd(), ":~")'
+let g:vimshell_prompt =  '$ '
+
+" NERDTree configuration
+noremap <silent> <leader>n :NERDTreeToggle<CR> <C-w>=
+function! NERDTreeRefresh()
+    if &filetype == "nerdtree"
+        silent exe substitute(mapcheck("R"), "<CR>", "", "")
+    endif
+endfunction
+autocmd BufEnter * call NERDTreeRefresh()
+
+" neomake configuration
+let g:neomake_open_list = 1
+" noremap <silent> <leader>m :Neomake<CR>
+" autocmd! BufWritePost * Neomake
