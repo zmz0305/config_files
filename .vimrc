@@ -17,7 +17,7 @@ Plugin 'tpope/vim-fugitive'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
-Plugin 'git://git.wincent.com/command-t.git'
+" Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
 " Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
@@ -93,7 +93,7 @@ syntax on
 set backspace=indent,eol,start
 set number
 set history=200
-set set hlsearch " set search highlight"
+set hlsearch " set search highlight"
 let g:auto_save = 1  " enable AutoSave on Vim startup
 set laststatus=2 " let status bar show up when only one window
 let g:neocomplete#enable_at_startup = 1 " start auto completion upon starting
